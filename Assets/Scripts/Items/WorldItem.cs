@@ -15,74 +15,73 @@ namespace Items
         private NetworkInventory _inventory;
         private bool _pickable = true;
         
-        /// NOT SYNCED ONLY AVAILABLE ON SERVER
+        /// NOT SYNCED ONLY AVAILABLE ON OWNER
         private Transform _anchor;
 
         private void LateUpdate()
         {
-            if (!IsServer) return;
+            if (!IsOwner) return;
             if (_anchor == null) return;
             
             transform.position = _anchor.position;
             transform.rotation = Quaternion.identity;
         }
-
-        public bool PickUp(NetworkInventory inventory, NetworkObject parent, string transformPath)
+        
+        public bool PickUp(NetworkInventory inventory, Transform anchor)
         {
+            if (!IsOwner)
+            {
+                Debug.Log("CAN ONLY BE PICKED UP BY NETWORK OWNER");
+                return false;
+            }
+            
             if (!_pickable) return false;
             if (!inventory.AddItem(this)) return false;
-
-            PickUpRpc(inventory);
-            SetAnchorRpc(parent, transformPath);
             
-            return true;
-        }
-
-        [Rpc(SendTo.Server)]
-        private void SetAnchorRpc(NetworkObjectReference parent, string transformPath)
-        {
-            if (!parent.TryGet(out var obj)) return;
-            _anchor = string.IsNullOrEmpty(transformPath) ? obj.transform : obj.transform.Find(transformPath);
-        }
-
-        [Rpc(SendTo.ClientsAndHost)]
-        private void PickUpRpc(NetworkBehaviourReference inventory)
-        {
-            if (!inventory.TryGet(out NetworkInventory inv, NetworkManager)) return;
-            
+            _anchor = anchor;
             rb.angularVelocity = Vector3.zero;
             rb.linearVelocity = Vector3.zero;
             rb.useGravity = false;
             rb.isKinematic = true;
-            col.enabled = false;
-            _inventory = inv;
-            _pickable = false;
-        }
 
+            PickUpRpc(inventory);
+            
+            return true;
+        }
+        
         public bool Drop()
         {
+            if (!IsOwner)
+            {
+                Debug.Log("CAN ONLY BE PICKED UP BY NETWORK OWNER");
+                return false;
+            }
+            
             if (_pickable) return false;
             
             _anchor = null;
             _inventory.RemoveItem(this);
             
-            DropRpc();
-            ClearAnchorRpc();
+            rb.isKinematic = false;
+            rb.useGravity = true;
             
+            DropRpc();
             return true;
         }
-
-        [Rpc(SendTo.Server)]
-        private void ClearAnchorRpc()
+        
+        [Rpc(SendTo.ClientsAndHost)]
+        private void PickUpRpc(NetworkBehaviourReference inventory)
         {
-            _anchor = null;
+            if (!inventory.TryGet(out NetworkInventory inv, NetworkManager)) return;
+            
+            col.enabled = false;
+            _inventory = inv;
+            _pickable = false;
         }
-
+        
         [Rpc(SendTo.ClientsAndHost)]
         private void DropRpc()
         {
-            rb.isKinematic = false;
-            rb.useGravity = true;
             col.enabled = true;
             _inventory = null;
             _pickable = true;

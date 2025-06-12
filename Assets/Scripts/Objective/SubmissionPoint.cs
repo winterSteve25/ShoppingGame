@@ -12,7 +12,7 @@ namespace Objective
         
         public void AddItem(WorldItem item)
         {
-            item.PickUp(inventory, NetworkObject, "");
+            item.PickUp(inventory, transform);
             bingoBoard.SubmitItem(item);
         }
 

@@ -49,7 +49,7 @@ namespace Player
         public override void OnNetworkSpawn()
         {
             if (IsOwner) return;
-            // only enable if local player is supposed to control this player
+            // disable when not owner
             motor.enabled = false;
             enabled = false;
         }

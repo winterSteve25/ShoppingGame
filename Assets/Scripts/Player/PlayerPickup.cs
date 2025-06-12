@@ -2,6 +2,7 @@ using Items;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 namespace Player
 {
@@ -13,7 +14,9 @@ namespace Player
         [SerializeField] private Transform leftHand;
         [SerializeField] private Transform rightHand;
 
+        /// NOT SYNCED
         private Transform _fpCam;
+
         private WorldItem _leftHandItem;
         private WorldItem _rightHandItem;
 
@@ -25,34 +28,58 @@ namespace Player
         private void Update()
         {
             if (!IsOwner) return;
-            if (Mouse.current.leftButton.wasPressedThisFrame)
+            HandleHandInput(Mouse.current.leftButton, ref _leftHandItem, true);
+            HandleHandInput(Mouse.current.rightButton, ref _rightHandItem, false);
+        }
+
+        private void HandleHandInput(ButtonControl button, ref WorldItem handItem, bool left)
+        {
+            if (!button.wasPressedThisFrame) return;
+            if (handItem == null)
             {
-                if (_leftHandItem == null)
+                if (!Physics.Raycast(head.position, _fpCam.forward, out var hit, range)) return;
+                if (!hit.transform.TryGetComponent(out WorldItem item)) return;
+
+                if (item.NetworkObject.OwnerClientId == NetworkManager.LocalClientId)
                 {
-                    if (!Physics.Raycast(head.position, _fpCam.forward, out var hit, range)) return;
-                    if (!hit.transform.TryGetComponent(out WorldItem item)) return;
-                    if (!item.PickUp(inventory, NetworkObject, leftHand.name)) return;
-                    _leftHandItem = item;
+                    PickupItem(item, left);
                 }
-                else if (_leftHandItem.Drop())
+                else
                 {
-                    _leftHandItem = null;
+                    PickUpItemAndChangeOwnerRpc(item, left);
                 }
             }
-
-            if (Mouse.current.rightButton.wasPressedThisFrame)
+            else if (handItem.Drop())
             {
-                if (_rightHandItem == null)
-                {
-                    if (!Physics.Raycast(head.position, _fpCam.forward, out var hit, range)) return;
-                    if (!hit.transform.TryGetComponent(out WorldItem item)) return;
-                    if (!item.PickUp(inventory, NetworkObject, rightHand.name)) return;
-                    _rightHandItem = item;
-                }
-                else if (_rightHandItem.Drop())
-                {
-                    _rightHandItem = null;
-                }
+                handItem = null;
+            }
+        }
+
+        [Rpc(SendTo.Server)]
+        private void PickUpItemAndChangeOwnerRpc(NetworkBehaviourReference obj, bool left, RpcParams param = default)
+        {
+            if (!obj.TryGet(out WorldItem o, NetworkManager)) return;
+            o.NetworkObject.ChangeOwnership(param.Receive.SenderClientId);
+            OwnershipChangedRpc(o, left, RpcTarget.Single(param.Receive.SenderClientId, RpcTargetUse.Temp));
+        }
+
+        [Rpc(SendTo.SpecifiedInParams)]
+        private void OwnershipChangedRpc(NetworkBehaviourReference obj, bool left, RpcParams _)
+        {
+            if (!obj.TryGet(out WorldItem item, NetworkManager)) return;
+            PickupItem(item, left);
+        }
+
+        private void PickupItem(WorldItem item, bool left)
+        {
+            if (!item.PickUp(inventory, left ? leftHand : rightHand)) return;
+            if (left)
+            {
+                _leftHandItem = item;
+            }
+            else
+            {
+                _rightHandItem = item;
             }
         }
     }
