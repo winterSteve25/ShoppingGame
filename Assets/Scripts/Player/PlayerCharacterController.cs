@@ -1,7 +1,6 @@
 using KinematicCharacterController;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -10,6 +9,7 @@ namespace Player
         public Vector2 Movement;
         public Quaternion Rotation;
         public bool JumpDown;
+        public bool SprintDown;
     }
 
     public class PlayerCharacterController : NetworkBehaviour, ICharacterController
@@ -17,8 +17,9 @@ namespace Player
         [SerializeField] private KinematicCharacterMotor motor;
         
         [Header("Stable Movement")] 
-        public float maxStableMoveSpeed = 10f;
+        public float maxStableMoveSpeed = 9f;
         public float stableMovementSharpness = 15f;
+        public float maxSprintMoveSpeed = 12f;
 
         [Header("Air Movement")]
         public float maxAirMoveSpeed = 15f;
@@ -79,7 +80,7 @@ namespace Player
                 Vector3 inputRight = Vector3.Cross(moveVec, motor.CharacterUp);
                 Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized *
                                           moveVec.magnitude;
-                Vector3 targetMovementVelocity = reorientedInput * maxStableMoveSpeed;
+                Vector3 targetMovementVelocity = reorientedInput * (_playerInput.SprintDown ? maxSprintMoveSpeed : maxStableMoveSpeed);
 
                 // Smooth movement Velocity
                 currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,

@@ -1,6 +1,6 @@
 namespace Items
 {
-    public class ItemStack
+    public struct ItemStack
     {
         public ItemType Item;
         public int Amount;

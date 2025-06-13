@@ -4,22 +4,30 @@ using UnityEngine;
 
 namespace Objective
 {
-    public class SubmissionPoint : NetworkBehaviour
+    public class SubmissionPoint : NetworkBehaviour, IItemTaker
     {
         [SerializeField] private NetworkInventory inventory;
         [SerializeField] private BingoBoard bingoBoard;
-        [SerializeField] private int team;
+        [SerializeField] private byte team;
+        [SerializeField] private Transform[] points;
         
-        public void AddItem(WorldItem item)
+        public bool Submit(WorldItem itemHeld)
         {
-            item.PickUp(inventory, transform);
-            bingoBoard.SubmitItem(item);
+            itemHeld.Drop();
+            itemHeld.SetAnchor(points[Random.Range(0, points.Length)]);
+            itemHeld.OnPicked += OnItemPicked;
+            
+            inventory.AddItem(itemHeld);
+            bingoBoard.SubmitItem(itemHeld);
+            
+            return true;
         }
 
-        public void RemoveItem(WorldItem item)
+        private void OnItemPicked(WorldItem item)
         {
-            item.Drop();
+            item.OnPicked -= OnItemPicked;
             bingoBoard.RemoveItem(item);
+            inventory.RemoveItem(item);
         }
     }
 }

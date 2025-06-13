@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,37 +5,24 @@ namespace Items
 {
     public class NetworkInventory : NetworkBehaviour
     {
-        [SerializeField] private List<WorldItem> items;
         [SerializeField] private int capacity;
-        
+
+        private NetworkList<NetworkObjectReference> _items = new(writePerm: NetworkVariableWritePermission.Owner);
+
         public bool AddItem(WorldItem itemType)
         {
-            if (items.Count >= capacity)
+            if (capacity != -1 && _items.Count >= capacity)
             {
                 return false;
             }
 
-            AddItemRpc(itemType);
+            _items.Add(itemType.NetworkObject);
             return true;
         }
-        
+
         public void RemoveItem(WorldItem item)
         {
-            RemoveItemRpc(item);
-        }
-
-        [Rpc(SendTo.ClientsAndHost)]
-        private void RemoveItemRpc(NetworkBehaviourReference item)
-        {
-            if (!item.TryGet(out WorldItem wi)) return;
-            items.Remove(wi);
-        }
-
-        [Rpc(SendTo.ClientsAndHost)]
-        private void AddItemRpc(NetworkBehaviourReference item)
-        {
-            if (!item.TryGet(out WorldItem wi)) return;
-            items.Add(wi);
+            _items.Remove(item.NetworkObject);
         }
     }
 }
