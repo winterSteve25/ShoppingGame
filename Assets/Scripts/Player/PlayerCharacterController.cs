@@ -62,8 +62,14 @@ namespace Player
 
         public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
+            var friction = 1f;
             var moveVec = transform.forward * _playerInput.Movement.y + transform.right * _playerInput.Movement.x;
             moveVec.Normalize();
+
+            if (Physics.Raycast(transform.position, Vector3.down, out var hit, 1))
+            {
+                friction = hit.collider.material.dynamicFriction;
+            }
 
             // Ground movement
             if (motor.GroundingStatus.IsStableOnGround)
@@ -83,8 +89,21 @@ namespace Player
                 Vector3 targetMovementVelocity = reorientedInput * (_playerInput.SprintDown ? maxSprintMoveSpeed : maxStableMoveSpeed);
 
                 // Smooth movement Velocity
-                currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
-                    1f - Mathf.Exp(-stableMovementSharpness * deltaTime));
+                // currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
+                    // 1f - Mathf.Exp(-stableMovementSharpness * deltaTime));
+                
+                if (moveVec.sqrMagnitude > 0f)
+                {
+                    // Smooth towards target velocity with standard sharpness
+                    currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
+                        1f - Mathf.Exp(-stableMovementSharpness * deltaTime));
+                }
+                else
+                {
+                    // Apply friction when there's no input
+                    currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero,
+                        Mathf.Clamp01(friction) * (1f - Mathf.Exp(-stableMovementSharpness * deltaTime)));
+                }
             }
             // Air movement
             else
@@ -92,8 +111,7 @@ namespace Player
                 // Add move input
                 if (moveVec.sqrMagnitude > 0f)
                 {
-                    Vector3 addedVelocity = moveVec * airAccelerationSpeed * deltaTime;
-
+                    Vector3 addedVelocity = moveVec * (airAccelerationSpeed * deltaTime);
                     Vector3 currentVelocityOnInputsPlane = Vector3.ProjectOnPlane(currentVelocity, motor.CharacterUp);
 
                     // Limit air velocity from inputs

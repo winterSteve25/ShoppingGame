@@ -199,6 +199,9 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   width: 5
   height: 5
+  canvas: {fileID: 0}
+  parent: {fileID: 0}
+  cellPrefab: {fileID: 2377082093162272225, guid: 506c97b5c4eca4b41841fe8c73dadbda, type: 3}
 --- !u!114 &1050801638935297524
 MonoBehaviour:
   m_ObjectHideFlags: 0
