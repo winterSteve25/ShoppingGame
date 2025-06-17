@@ -15,19 +15,19 @@ namespace Player
     public class PlayerCharacterController : NetworkBehaviour, ICharacterController
     {
         [SerializeField] private KinematicCharacterMotor motor;
-        
+
         [Header("Stable Movement")] 
         public float maxStableMoveSpeed = 9f;
         public float stableMovementSharpness = 15f;
         public float maxSprintMoveSpeed = 12f;
 
-        [Header("Air Movement")]
+        [Header("Air Movement")] 
         public float maxAirMoveSpeed = 15f;
         public float airAccelerationSpeed = 15f;
         public float drag = 0.1f;
         public Vector3 gravity = new Vector3(0, -30f, 0);
-        
-        [Header("Jumping")]
+
+        [Header("Jumping")] 
         public bool allowJumpingWhenSliding = false;
         public float jumpUpSpeed = 10f;
         public float jumpScalableForwardSpeed = 0f;
@@ -75,34 +75,35 @@ namespace Player
             if (motor.GroundingStatus.IsStableOnGround)
             {
                 float currentVelocityMagnitude = currentVelocity.magnitude;
-
                 Vector3 effectiveGroundNormal = motor.GroundingStatus.GroundNormal;
 
-                // Reorient velocity on slope
-                currentVelocity = motor.GetDirectionTangentToSurface(currentVelocity, effectiveGroundNormal) *
-                                  currentVelocityMagnitude;
+                // Reorient current velocity to slope
+                currentVelocity = motor.GetDirectionTangentToSurface(currentVelocity, effectiveGroundNormal) * currentVelocityMagnitude;
 
-                // Calculate target velocity
+                // Input reoriented to ground
                 Vector3 inputRight = Vector3.Cross(moveVec, motor.CharacterUp);
-                Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized *
-                                          moveVec.magnitude;
-                Vector3 targetMovementVelocity = reorientedInput * (_playerInput.SprintDown ? maxSprintMoveSpeed : maxStableMoveSpeed);
+                Vector3 reorientedInput = Vector3.Cross(effectiveGroundNormal, inputRight).normalized * moveVec.magnitude;
 
-                // Smooth movement Velocity
-                // currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
-                    // 1f - Mathf.Exp(-stableMovementSharpness * deltaTime));
-                
+                // Desired move speed
+                Vector3 desiredVelocity = reorientedInput * (_playerInput.SprintDown ? maxSprintMoveSpeed : maxStableMoveSpeed);
+
                 if (moveVec.sqrMagnitude > 0f)
                 {
-                    // Smooth towards target velocity with standard sharpness
-                    currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity,
-                        1f - Mathf.Exp(-stableMovementSharpness * deltaTime));
+                    // Add movement input gradually depending on friction
+                    float controlResponsiveness = Mathf.Lerp(1f, 0.05f, 1f - friction); // less responsive when slippery
+
+                    currentVelocity = Vector3.Lerp(currentVelocity, desiredVelocity,
+                        controlResponsiveness * (1f - Mathf.Exp(-stableMovementSharpness * deltaTime)));
                 }
                 else
                 {
-                    // Apply friction when there's no input
-                    currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero,
-                        Mathf.Clamp01(friction) * (1f - Mathf.Exp(-stableMovementSharpness * deltaTime)));
+                    // Only decelerate if friction > 0
+                    if (friction > 0f)
+                    {
+                        float slowDownFactor = friction * (1f - Mathf.Exp(-stableMovementSharpness * deltaTime));
+                        currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, slowDownFactor);
+                    }
+                    // If friction == 0, do nothing — let velocity persist
                 }
             }
             // Air movement
