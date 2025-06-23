@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863a43c528784a1d8e15f937c9954cb3, type: 3}
   m_Name: Uncommon 4
   m_EditorClassIdentifier: 
-  <Min>k__BackingField: 3
-  <Max>k__BackingField: 6
+  <Rarity>k__BackingField: 1

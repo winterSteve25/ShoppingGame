@@ -18,46 +18,14 @@ namespace Objective
 
         private ItemStack2DArray _board;
 
-        public override void OnNetworkSpawn()
-        {
-            if (!IsServer)
-            {
-                if (_board == null)
-                {
-                    RequestBoardSyncRpc();
-                }
-                
-                return;
-            }
-            
-            PopulateBoard();
-        }
-
         public override void OnDestroy()
         {
             if (_board == null) return;
             _board.Dispose();
         }
 
-        private void PopulateBoard()
-        {
-            _board = new ItemStack2DArray(width, height);
-            
-            for (int i = 0; i < width; i++)
-            {
-                for (int j = 0; j < height; j++)
-                {
-                    var it = ItemTypeManager.ItemTypes[Random.Range(0, ItemTypeManager.ItemTypes.Count)];
-                    _board[i, j] = new ItemStack(it, Random.Range(it.Min, it.Max));
-                }
-            }
-            
-            SyncBoardRpc(_board);
-            RecreateBoard();
-        }
-
-        [Rpc(SendTo.NotServer)]
-        private void SyncBoardRpc(ItemStack2DArray arr)
+        [Rpc(SendTo.ClientsAndHost)]
+        public void SyncBoardRpc(ItemStack2DArray arr)
         {
             if (_board != null) return;
             _board = arr;

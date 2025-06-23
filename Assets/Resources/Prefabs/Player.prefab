@@ -273,14 +273,14 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   motor: {fileID: 2843902072417052091}
   maxStableMoveSpeed: 9
-  stableMovementSharpness: 15
+  stableMovementSharpness: 16
   maxSprintMoveSpeed: 12
   maxAirMoveSpeed: 15
   airAccelerationSpeed: 15
   drag: 0.1
   gravity: {x: 0, y: -30, z: 0}
   allowJumpingWhenSliding: 0
-  jumpUpSpeed: 10
+  jumpUpSpeed: 11.5
   jumpScalableForwardSpeed: 0
   jumpPreGroundingGraceTime: 0
   jumpPostGroundingGraceTime: 0
