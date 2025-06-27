@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Uncommon 2
   m_EditorClassIdentifier: 
   <Rarity>k__BackingField: 1
+  <Scale>k__BackingField: {x: 2, y: 2, z: 2}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 4d8d19675c6420d43bf329427fafa87a, type: 3}
+  <Mesh>k__BackingField: {fileID: 289301614986012343, guid: 1d6002d575647834f913a049a7101301, type: 3}
+  <Materials>k__BackingField: []

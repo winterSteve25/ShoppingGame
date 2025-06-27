@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863a43c528784a1d8e15f937c9954cb3, type: 3}
   m_Name: Common 3
   m_EditorClassIdentifier: 
-  <Min>k__BackingField: 4
-  <Max>k__BackingField: 8
+  <Rarity>k__BackingField: 0
+  <Scale>k__BackingField: {x: 12, y: 12, z: 12}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 9390bb1081a0a7e4abd487abf4f33656, type: 3}
+  <Mesh>k__BackingField: {fileID: -5495902117074765545, guid: 9b58bad2160e6044890dd942aef203fa, type: 3}
+  <Materials>k__BackingField: []

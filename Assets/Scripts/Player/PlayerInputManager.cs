@@ -1,8 +1,8 @@
-using Managers;
+using System;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+using Utils;
 
 namespace Player
 {
@@ -13,14 +13,14 @@ namespace Player
         [SerializeField] private InputActionReference moveAction;
         [SerializeField] private InputActionReference jumpAction;
         [SerializeField] private InputActionReference sprintAction;
-        
+
         private GameObject _cam;
 
         public override void OnNetworkSpawn()
         {
             if (!IsOwner) return;
             _cam = CameraManager.Current.FPCam.gameObject;
-            
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             CameraManager.Current.SetFPTarget(head);
@@ -29,7 +29,12 @@ namespace Player
         private void Update()
         {
             if (!IsOwner) return;
-            
+            if (_cam == null)
+            {
+                _cam = CameraManager.Current.FPCam.gameObject;
+                CameraManager.Current.SetFPTarget(head);
+            }
+
             controller.SetInput(new PlayerInput()
             {
                 Movement = moveAction.action.ReadValue<Vector2>(),

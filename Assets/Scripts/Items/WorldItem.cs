@@ -6,15 +6,23 @@ namespace Items
 {
     public class WorldItem : NetworkBehaviour
     {
-        public ItemType ItemType => itemType;
+        public ItemType ItemType
+        {
+            get => ItemTypeManager.ItemTypes[_itemType.Value];
+            set => _itemType.Value = ItemTypeManager.ItemTypes.IndexOf(value);
+        }
 
         [SerializeField] private ItemType itemType;
-        [SerializeField] private Rigidbody rb;
+        [SerializeField] protected Rigidbody rb;
         [SerializeField] private Collider col;
+        [SerializeField] private MeshFilter meshFilter;
+        [SerializeField] private MeshRenderer meshRenderer;
+        [SerializeField] private MeshCollider meshCollider;
 
         /// SYNCED
-        private NetworkInventory _inventory;
+        private NetworkVariable<int> _itemType = new(-1, writePerm: NetworkVariableWritePermission.Server);
 
+        private NetworkInventory _inventory;
         private bool _pickable = true;
 
         /// NOT SYNCED ONLY AVAILABLE ON OWNER
@@ -22,13 +30,47 @@ namespace Items
 
         public event Action<WorldItem> OnPicked;
 
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+            
+            _itemType.OnValueChanged += (_, newValue) => UpdateTransform(newValue);
+            
+            if (IsServer && itemType != null)
+            {
+                _itemType.Value = ItemTypeManager.ItemTypes.IndexOf(itemType);
+            }
+
+            if (_itemType.Value != -1)
+            {
+                UpdateTransform(_itemType.Value);
+            }
+        }
+
+        private void UpdateTransform(int newValue)
+        {
+            var value = ItemTypeManager.ItemTypes[newValue];
+            transform.localScale = 0.8f * value.Scale;
+
+            if (value.Mesh != null)
+            {
+                meshFilter.mesh = value.Mesh;
+                meshCollider.sharedMesh = value.Mesh;
+            }
+
+            if (value.Materials.Length > 0)
+            {
+                meshRenderer.materials = value.Materials;
+            }
+        }
+
         private void LateUpdate()
         {
             if (!IsOwner) return;
             if (_anchor == null) return;
 
             transform.position = _anchor.position;
-            transform.rotation = Quaternion.identity;
+            transform.rotation = Quaternion.LookRotation(_anchor.forward);
         }
 
         public bool PickUp(NetworkInventory inventory, Transform anchor)
@@ -68,7 +110,7 @@ namespace Items
             rb.isKinematic = true;
         }
 
-        public bool Drop()
+        public virtual bool Drop()
         {
             if (!IsOwner)
             {

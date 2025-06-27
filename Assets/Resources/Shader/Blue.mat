@@ -44,7 +44,7 @@ Material:
     - _SmoothLeft: 0.569
     - _SmoothRight: 0.59
     m_Colors:
-    - _Color: {r: 0, g: 0.74154997, b: 1, a: 1}
+    - _Color: {r: 0.16509432, g: 0.62856495, b: 1, a: 1}
     - _Threshold: {r: -1.37, g: -0.32, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

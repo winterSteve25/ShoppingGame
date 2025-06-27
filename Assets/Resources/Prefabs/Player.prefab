@@ -302,19 +302,19 @@ MonoBehaviour:
   leftHand: {fileID: 7538155848240096493}
   rightHand: {fileID: 4212201182866441450}
   range: 10
-  shoveForce: 80
+  shoveForce: 40
   throwMultiplierCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 7.922296
-      outSlope: 7.922296
+      inSlope: 12.633966
+      outSlope: 12.633966
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.06190294
+      outWeight: 0.033068784
     - serializedVersion: 3
       time: 3.5
       value: 20

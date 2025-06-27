@@ -1,12 +1,16 @@
+using System;
+using System.Collections.Generic;
 using Items;
 using KinematicCharacterController;
 using Managers;
+using NUnit.Framework;
 using Objective;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.Serialization;
+using Utils;
 
 namespace Player
 {
@@ -27,9 +31,19 @@ namespace Player
         private Transform _fpCam;
         private WorldItem _leftHandItem;
         private WorldItem _rightHandItem;
+        private Stack<IInteractableArea> _interactableAreas;
+        
+        public WorldItem LeftHandItem => _leftHandItem;
+        public WorldItem RightHandItem => _rightHandItem;
         
         private bool _throwing;
         private float _heldTime;
+
+        public override void OnNetworkSpawn()
+        {
+            if (!IsOwner) return;
+            _interactableAreas = new Stack<IInteractableArea>();
+        }
 
         private void Start()
         {
@@ -39,6 +53,11 @@ namespace Player
         private void Update()
         {
             if (!IsOwner) return;
+            if (_fpCam == null)
+            {
+                _fpCam = CameraManager.Current.FPCam.transform;
+            }
+            
             HandleHandInput(Mouse.current.leftButton, true);
             HandleHandInput(Mouse.current.rightButton, false);
         }
@@ -46,13 +65,18 @@ namespace Player
         private void HandleHandInput(ButtonControl button, bool left)
         {
             ref var handItem = ref left ? ref _leftHandItem : ref _rightHandItem;
-
             if (handItem == null)
             {
                 if (!button.wasPressedThisFrame) return;
                 var didHit = Physics.Raycast(head.position, _fpCam.forward, out var hit, range);
                 if (!didHit)
                 {
+                    if (_interactableAreas.TryPeek(out var area))
+                    {
+                        area.Interact(NetworkObject, left);
+                        return;
+                    }
+                    
                     Punch(false, hit, left);
                     return;
                 }
@@ -61,21 +85,14 @@ namespace Player
                 {
                     if (hit.transform.TryGetComponent(out IInteractable interactable))
                     {
-                        if (interactable.Interact(NetworkObject)) return;
+                        if (interactable.Interact(NetworkObject, left)) return;
                     }
                     
                     Punch(true, hit, left);
                     return;
                 }
 
-                if (item.NetworkObject.OwnerClientId == NetworkManager.LocalClientId)
-                {
-                    PickupItem(item, left);
-                }
-                else
-                {
-                    PickUpItemAndChangeOwnerRpc(item, left);
-                }
+                PickupItemToHand(item, left);
             }
             else
             {
@@ -106,7 +123,7 @@ namespace Player
                         if (handItem.TryGetComponent(out Rigidbody rb))
                         {
                             rb.AddForce(
-                                (_fpCam.forward + new Vector3(0, 0.2f, 0)) * throwMultiplierCurve.Evaluate(_heldTime),
+                                (_fpCam.forward + new Vector3(0, 0.4f, 0)) * throwMultiplierCurve.Evaluate(_heldTime),
                                 ForceMode.VelocityChange
                             );
                         }
@@ -119,6 +136,18 @@ namespace Player
                 {
                     _heldTime += Time.deltaTime;
                 }
+            }
+        }
+
+        public void PickupItemToHand(WorldItem item, bool left)
+        {
+            if (item.NetworkObject.OwnerClientId == NetworkManager.LocalClientId)
+            {
+                PickupItem(item, left);
+            }
+            else
+            {
+                PickUpItemAndChangeOwnerRpc(item, left);
             }
         }
 
@@ -154,18 +183,18 @@ namespace Player
         {
             if (!didHit) return;
             if (!hit.transform.TryGetComponent(out PlayerHandInteraction no)) return;
-            ApplyForceRpc(no, shoveForce, RpcTarget.Single(no.OwnerClientId, RpcTargetUse.Temp));
+            ApplyForceRpc(no, transform.forward * shoveForce, RpcTarget.Single(no.OwnerClientId, RpcTargetUse.Temp));
         }
 
         [Rpc(SendTo.SpecifiedInParams)]
-        private void ApplyForceRpc(NetworkBehaviourReference obj, float force, RpcParams _)
+        public void ApplyForceRpc(NetworkBehaviourReference obj, Vector3 force, RpcParams _)
         {
             if (!obj.TryGet(out PlayerHandInteraction o, NetworkManager)) return;
             if (!o.TryGetComponent(out KinematicCharacterMotor motor)) return;
-            motor.BaseVelocity += transform.forward * (force * (motor.GroundingStatus.IsStableOnGround ? 1.2f : 1));
+            motor.BaseVelocity += (force * (motor.GroundingStatus.IsStableOnGround ? 1.2f : 1));
 
-            DropItemAndApplyForce(ref o._leftHandItem, transform.forward * force);
-            DropItemAndApplyForce(ref o._rightHandItem, transform.forward * force);
+            DropItemAndApplyForce(ref o._leftHandItem, force);
+            DropItemAndApplyForce(ref o._rightHandItem, force);
         }
 
         private void DropItemAndApplyForce(ref WorldItem item, Vector3 force)
@@ -177,6 +206,20 @@ namespace Player
             }
 
             item = null;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!IsOwner) return;
+            if (!other.TryGetComponent(out IInteractableArea area)) return;
+            _interactableAreas.Push(area);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (!IsOwner) return;
+            if (!other.TryGetComponent(out IInteractableArea _)) return;
+            _interactableAreas.Pop();
         }
     }
 }

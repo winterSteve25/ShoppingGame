@@ -6,7 +6,7 @@ using UnityEditor;
 namespace KinematicCharacterController
 {
     [CustomEditor(typeof(KinematicCharacterMotor))]
-    public class KinematicCharacterMotorEditor : Editor
+    public class KinematicCharacterMotorEditor : UnityEditor.Editor
     {
         protected virtual void OnSceneGUI()
         {            

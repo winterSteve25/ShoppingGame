@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863a43c528784a1d8e15f937c9954cb3, type: 3}
+  m_Name: Common 6
+  m_EditorClassIdentifier: 
+  <Rarity>k__BackingField: 0
+  <Scale>k__BackingField: {x: 7, y: 7, z: 7}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 061c8212783daf548a2b3b8058800c22, type: 3}
+  <Mesh>k__BackingField: {fileID: -5495902117074765545, guid: ce0eeef2b6744a547a2c66c632528939, type: 3}
+  <Materials>k__BackingField: []

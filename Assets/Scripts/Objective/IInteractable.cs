@@ -4,6 +4,6 @@ namespace Objective
 {
     public interface IInteractable
     {
-        bool Interact(NetworkObject player);
+        bool Interact(NetworkObject player, bool left);
     }
 }

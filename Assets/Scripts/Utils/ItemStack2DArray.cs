@@ -1,56 +1,51 @@
-using System;
 using Items;
-using Unity.Collections;
 using Unity.Netcode;
+using UnityEngine;
 
 namespace Utils
 {
-    public class ItemStack2DArray : INetworkSerializable, IDisposable
+    public class ItemStack2DArray : INetworkSerializable
     {
-        private int _width;
-        private NativeArray<ulong> _items;
+        public int Dimension => _dimension;
+        
+        private int _dimension;
+        private Vector2Int[] _items;
 
         public ItemStack2DArray()
         {
         }
 
-        public ItemStack2DArray(int width, int height)
+        public ItemStack2DArray(int dimension)
         {
-            _width = width;
-            _items = new NativeArray<ulong>(width * height, Allocator.Persistent);
+            _dimension = dimension;
+            _items = new Vector2Int[dimension * dimension];
         }
 
         public ItemStack this[int x, int y]
         {
-            get => Unpack(_items[_width * y + x]);
-            set => _items[_width * y + x] = Pack(value);
+            get => Unpack(_items[_dimension * y + x]);
+            set => _items[_dimension * y + x] = Pack(value);
         }
         
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
-            serializer.SerializeValue(ref _width);
-            serializer.SerializeValue(ref _items, Allocator.Persistent);
+            serializer.SerializeValue(ref _dimension);
+            serializer.SerializeValue(ref _items);
         }
 
-        public void Dispose()
+        private ItemStack Unpack(Vector2Int item)
         {
-            _items.Dispose();
-        }
-
-        private ItemStack Unpack(ulong item)
-        {
-            var id = (int)(item >> 32);
-            var amount = (int)(item & 0xFFFFFFFF);
+            var id = item.x;
+            var amount = item.y;
             var it = ItemTypeManager.ItemTypes[id];
             return new ItemStack(it, amount);
         }
 
-        private ulong Pack(ItemStack item)
+        private Vector2Int Pack(ItemStack item)
         {
-            int id = ItemTypeManager.ItemTypes.IndexOf(item.Item);
-            int amount = item.Amount;
-
-            return ((ulong)(uint)id << 32) | (uint)amount;
+            var id = ItemTypeManager.ItemTypes.IndexOf(item.Item);
+            var amount = item.Amount;
+            return new Vector2Int(id, amount);
         }
     }
 }
