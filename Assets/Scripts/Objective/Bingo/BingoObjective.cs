@@ -44,7 +44,7 @@ namespace Objective.Bingo
 
             foreach (var b in bingoBoards)
             {
-                b.SyncBoardRpc(new BingoBoard(board));
+                b.SyncBoard(new BingoBoard(board));
             }
 
             _board = board;

@@ -83,6 +83,13 @@ namespace Objective.Bingo
             _board = arr;
             RecreateBoard();
         }
+        
+        public void SyncBoard(BingoBoard arr)
+        {
+            if (_board != null) return;
+            _board = arr;
+            RecreateBoard();
+        }
 
         [Rpc(SendTo.ClientsAndHost)]
         private void SubmitItemRpc(int i, int j)
