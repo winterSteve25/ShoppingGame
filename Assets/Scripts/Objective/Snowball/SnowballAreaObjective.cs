@@ -132,7 +132,7 @@ namespace Objective.Snowball
 
         public bool Interact(NetworkObject player, bool left)
         {
-            if (!player.TryGetComponent(out PlayerHandInteraction hand)) return false;
+            if (!player.TryGetComponent(out PlayerHandManager hand)) return false;
             if (!player.TryGetComponent(out PlayerIdentity playerIdentity)) return false;
             if (playerIdentity.TeamId != _owningTeam.Value) return false;
 
@@ -157,7 +157,7 @@ namespace Objective.Snowball
             if (!player.TryGet(out var p)) return;
             if (!item.TryGet(out var obj)) return;
 
-            p.GetComponent<PlayerHandInteraction>()
+            p.GetComponent<PlayerHandManager>()
                 .PickupItemToHand(obj.GetComponent<WorldItem>(), left);
         }
     }

@@ -49,8 +49,11 @@ namespace Objective.Bingo
                     }
 
                     RemoveItemRpc(i, j);
+                    goto end;
                 }
             }
+
+            end: ;
         }
         
         private void RecreateBoard()

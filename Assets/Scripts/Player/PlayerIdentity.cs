@@ -1,7 +1,7 @@
-using System;
 using Sirenix.OdinInspector;
 using Steamworks;
 using TMPro;
+using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -10,13 +10,14 @@ namespace Player
     public class PlayerIdentity : NetworkBehaviour
     {
         public static PlayerIdentity LocalPlayer { get; private set; }
-        
-        [SerializeField] private TMP_Text playerNameText;
 
+        [SerializeField] private TMP_Text playerNameText;
         [ShowInInspector] public ulong ClientId => _clientId.Value;
-        [ShowInInspector] public byte TeamId
+
+        [ShowInInspector]
+        public byte TeamId
         {
-            get { return _teamId.Value; }
+            get => _teamId.Value;
             set
             {
                 Debug.LogWarning("CAN NOT MODIFY TEAM ID UNLESS ITS THROUGH INSPECTOR");
@@ -26,39 +27,27 @@ namespace Player
 
         private NetworkVariable<ulong> _clientId = new(writePerm: NetworkVariableWritePermission.Owner);
         private NetworkVariable<byte> _teamId = new(writePerm: NetworkVariableWritePermission.Server);
+        private NetworkVariable<FixedString32Bytes> _playerName = new(writePerm: NetworkVariableWritePermission.Owner);
 
         public override void OnNetworkSpawn()
         {
             if (!IsOwner) return;
             LocalPlayer = this;
             _clientId.Value = NetworkManager.LocalClientId;
-            UpdatePlayerNameRpc(SteamClient.Name);
+
+#if UNITY_EDITOR
+            _playerName.Value = Random.value.ToString("F1");
+#else
+            _playerName.Value = SteamClient.Name;
+#endif
         }
+
 
         private void Start()
         {
-            if (!IsOwner && string.IsNullOrEmpty(playerNameText.text))
-            {
-                RequestPlayerNameRpc();
-            }
-        }
+            _playerName.OnValueChanged += (_, newValue) => { playerNameText.text = newValue.ToString(); };
 
-        [Rpc(SendTo.Owner)]
-        private void RequestPlayerNameRpc(RpcParams param = default)
-        {
-            UpdatePlayerNameRpc(SteamClient.Name, RpcTarget.Single(param.Receive.SenderClientId, RpcTargetUse.Temp));
-        }
-
-        [Rpc(SendTo.ClientsAndHost)]
-        private void UpdatePlayerNameRpc(string name)
-        {
-            playerNameText.text = name;
-        }
-        
-        [Rpc(SendTo.SpecifiedInParams)]
-        private void UpdatePlayerNameRpc(string name, RpcParams _)
-        {
-            playerNameText.text = name;
+            playerNameText.text = _playerName.Value.ToString();
         }
 
         public override void OnDestroy()

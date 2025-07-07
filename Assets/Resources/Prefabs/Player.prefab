@@ -18,8 +18,10 @@ GameObject:
   - component: {fileID: 7639966656193575416}
   - component: {fileID: 611554306768832851}
   - component: {fileID: 6559789729221119902}
-  - component: {fileID: 4385170977843637244}
   - component: {fileID: 5055781422923125238}
+  - component: {fileID: 4385170977843637244}
+  - component: {fileID: 6304570460382979067}
+  - component: {fileID: 5829937000388178559}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -285,6 +287,20 @@ MonoBehaviour:
   jumpScalableForwardSpeed: 0
   jumpPreGroundingGraceTime: 0
   jumpPostGroundingGraceTime: 0
+--- !u!114 &5055781422923125238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069156173189238515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ece9103ae14475a8d06d1073eee4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  playerNameText: {fileID: 5476756947849489893}
 --- !u!114 &4385170977843637244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,22 +316,23 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   inventory: {fileID: 7639966656193575416}
   head: {fileID: 3432323094713352575}
-  leftHand: {fileID: 7538155848240096493}
-  rightHand: {fileID: 4212201182866441450}
-  range: 10
+  leftHand: {fileID: 6304570460382979067}
+  rightHand: {fileID: 5829937000388178559}
+  range: 6
   shoveForce: 40
+  shoveCooldown: 0.8
   throwMultiplierCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 12.633966
-      outSlope: 12.633966
+      inSlope: 10.188679
+      outSlope: 10.188679
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.033068784
+      outWeight: 0.034391537
     - serializedVersion: 3
       time: 3.5
       value: 20
@@ -328,7 +345,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5055781422923125238
+--- !u!114 &6304570460382979067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,11 +354,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1069156173189238515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ece9103ae14475a8d06d1073eee4c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 84bfa6ad00fe435ea57cc3cfd2f08d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  playerNameText: {fileID: 5476756947849489893}
+  manager: {fileID: 4385170977843637244}
+  position: {fileID: 7538155848240096493}
+  isLeftHand: 1
+  itemHeld: {fileID: 0}
+--- !u!114 &5829937000388178559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069156173189238515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bfa6ad00fe435ea57cc3cfd2f08d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  manager: {fileID: 4385170977843637244}
+  position: {fileID: 4212201182866441450}
+  isLeftHand: 0
+  itemHeld: {fileID: 0}
 --- !u!1 &1292186805712434790
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,13 +436,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3004161558896047289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7863553192981831439}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 3.58}
@@ -476,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
+  m_text: 'Player Name
 
 '
   m_isRightToLeft: 0

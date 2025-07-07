@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -12,23 +13,30 @@ namespace Items
             set => _itemType.Value = ItemTypeManager.ItemTypes.IndexOf(value);
         }
 
+        [ShowInInspector]
+        public bool IsOnTree
+        {
+            get => _isOnTree.Value;
+            set => _isOnTree.Value = value;
+        }
+        
+        public event Action<WorldItem> OnPicked;
+
         [SerializeField] private ItemType itemType;
-        [SerializeField] protected Rigidbody rb;
-        [SerializeField] private Collider col;
         [SerializeField] private MeshFilter meshFilter;
         [SerializeField] private MeshRenderer meshRenderer;
         [SerializeField] private MeshCollider meshCollider;
+        [SerializeField] private Collider col;
+        [SerializeField] protected Rigidbody rb;
 
         /// SYNCED
         private NetworkVariable<int> _itemType = new(-1, writePerm: NetworkVariableWritePermission.Server);
-
+        private NetworkVariable<bool> _isOnTree = new(false, writePerm: NetworkVariableWritePermission.Server);
         private NetworkInventory _inventory;
         private bool _pickable = true;
 
         /// NOT SYNCED ONLY AVAILABLE ON OWNER
         private Transform _anchor;
-
-        public event Action<WorldItem> OnPicked;
 
         public override void OnNetworkSpawn()
         {

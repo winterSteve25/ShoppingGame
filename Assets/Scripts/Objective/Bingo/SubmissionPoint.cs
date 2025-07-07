@@ -11,7 +11,9 @@ namespace Objective.Bingo
         [FormerlySerializedAs("bingoBoard")] [SerializeField] private BingoBoardBehaviour bingoBoardBehaviour;
         [SerializeField] private byte team;
         [SerializeField] private Transform[] points;
-        
+
+        public float TimeToSubmit => 2f;
+
         public bool Submit(WorldItem itemHeld)
         {
             itemHeld.Drop();
@@ -26,6 +28,7 @@ namespace Objective.Bingo
         {
             if (!worldItem.TryGet(out WorldItem itemHeld)) return;
             itemHeld.OnPicked += OnItemPicked;
+            itemHeld.IsOnTree = true;
             inventory.AddItem(itemHeld);
             bingoBoardBehaviour.SubmitItem(itemHeld);
         }
@@ -33,6 +36,7 @@ namespace Objective.Bingo
         private void OnItemPicked(WorldItem item)
         {
             item.OnPicked -= OnItemPicked;
+            item.IsOnTree = false;
             bingoBoardBehaviour.RemoveItem(item);
             inventory.RemoveItem(item);
         }

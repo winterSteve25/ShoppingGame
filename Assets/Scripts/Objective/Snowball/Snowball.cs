@@ -14,18 +14,20 @@ namespace Objective.Snowball
         private void OnCollisionEnter(Collision other)
         {
             if (!IsOwner) return;
+            var direction = rb.linearVelocity.normalized;
+            direction.y = 0;
             
             if (other.gameObject.CompareTag("Player") &&
-                other.gameObject.TryGetComponent(out PlayerHandInteraction hand))
+                other.gameObject.TryGetComponent(out PlayerHandManager hand))
             {
                 hand.ApplyForceRpc(hand,
-                    rb.linearVelocity.normalized * force * forceMultiplierOnPlayer,
+                    direction * force * forceMultiplierOnPlayer,
                     RpcTarget.Single(hand.OwnerClientId, RpcTargetUse.Temp));
             }
             else if (other.gameObject.TryGetComponent(out NetworkRigidbody networkRigidbody))
             {
                 ApplyForceToRpc(networkRigidbody,
-                    rb.linearVelocity.normalized * force,
+                    direction * force,
                     RpcTarget.Single(networkRigidbody.OwnerClientId, RpcTargetUse.Temp));
             }
 
