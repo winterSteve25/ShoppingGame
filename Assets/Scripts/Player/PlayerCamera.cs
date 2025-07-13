@@ -1,21 +1,19 @@
+using Reflex.Core;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Utils
+namespace Player
 {
-    [DefaultExecutionOrder(-100)]
-    public class CameraManager : MonoBehaviour
+    public class PlayerCamera : MonoBehaviour, IInstaller
     {
-        public static CameraManager Current { get; private set; }
-
-        public CinemachineCamera FPCam => fpCam;
-    
         [SerializeField] private Camera cam;
         [SerializeField] private CinemachineCamera fpCam;
 
+        // ReSharper disable once InconsistentNaming
+        public new Transform transform => fpCam.transform;
+
         private void Awake()
         {
-            Current = this;
             fpCam.gameObject.SetActive(false);
         }
 
@@ -26,6 +24,11 @@ namespace Utils
             {
                 TrackingTarget = target,
             };
+        }
+
+        public void InstallBindings(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.AddSingleton(this, typeof(PlayerCamera));
         }
     }
 }

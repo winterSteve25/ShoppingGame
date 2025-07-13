@@ -14,20 +14,23 @@ namespace Objective.Snowball
         private void OnCollisionEnter(Collision other)
         {
             if (!IsOwner) return;
-            var direction = rb.linearVelocity.normalized;
+            
+            var direction = rb.linearVelocity;
             direction.y = 0;
+            direction.Normalize();
+            direction *= force * rb.linearVelocity.magnitude * 0.1f;
             
             if (other.gameObject.CompareTag("Player") &&
                 other.gameObject.TryGetComponent(out PlayerHandManager hand))
             {
                 hand.ApplyForceRpc(hand,
-                    direction * force * forceMultiplierOnPlayer,
+                    direction * forceMultiplierOnPlayer,
                     RpcTarget.Single(hand.OwnerClientId, RpcTargetUse.Temp));
             }
             else if (other.gameObject.TryGetComponent(out NetworkRigidbody networkRigidbody))
             {
                 ApplyForceToRpc(networkRigidbody,
-                    direction * force,
+                    direction,
                     RpcTarget.Single(networkRigidbody.OwnerClientId, RpcTargetUse.Temp));
             }
 
@@ -38,10 +41,7 @@ namespace Objective.Snowball
         private void ApplyForceToRpc(NetworkBehaviourReference target, Vector3 force, RpcParams _)
         {
             if (!target.TryGet(out NetworkRigidbody rb)) return;
-            rb.Rigidbody.AddForce(
-                force,
-                ForceMode.VelocityChange
-            );
+            rb.Rigidbody.linearVelocity = force;
         }
 
         [Rpc(SendTo.Server)]

@@ -1,8 +1,9 @@
-using System;
+using Managers;
+using Reflex.Attributes;
+using UI;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Utils;
 
 namespace Player
 {
@@ -14,40 +15,30 @@ namespace Player
         [SerializeField] private InputActionReference jumpAction;
         [SerializeField] private InputActionReference sprintAction;
 
-        private GameObject _cam;
+        [Inject] private PlayerCamera _cam;
 
         public override void OnNetworkSpawn()
         {
             if (!IsOwner) return;
-            _cam = CameraManager.Current.FPCam.gameObject;
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            CameraManager.Current.SetFPTarget(head);
+            _cam.SetFPTarget(head);
         }
 
         private void Update()
         {
             if (!IsOwner) return;
-            if (_cam == null)
-            {
-                _cam = CameraManager.Current.FPCam.gameObject;
-                CameraManager.Current.SetFPTarget(head);
-            }
 
             controller.SetInput(new PlayerInput()
             {
-                Movement = moveAction.action.ReadValue<Vector2>(),
+                Movement = OnScreenUIManager.Instance.ShouldLockInput
+                    ? Vector2.zero
+                    : moveAction.action.ReadValue<Vector2>(),
                 Rotation = _cam.transform.rotation,
-                JumpDown = jumpAction.action.IsPressed(),
-                SprintDown = sprintAction.action.IsPressed(),
+                JumpDown = !OnScreenUIManager.Instance.ShouldLockInput && jumpAction.action.IsPressed(),
+                SprintDown = !OnScreenUIManager.Instance.ShouldLockInput && sprintAction.action.IsPressed(),
             });
-
-            if (Mouse.current.middleButton.wasPressedThisFrame)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ using UnityEngine.SceneManagement;
 
 namespace SceneSpecific.Lobby
 {
-    // ONLY DOES STUFF ON SERVER
     public class StartGameManager : NetworkBehaviour
     {
         private Dictionary<byte, List<ulong>> _teams;
-        private NetworkVariable<int> _startCountDown = new(0);
+        private NetworkVariable<int> _startCountDown = new();
+        [NonSerialized] public NetworkVariable<int> SelectedMap = new();
 
         [SerializeField] private TMP_Text countDownText;
 

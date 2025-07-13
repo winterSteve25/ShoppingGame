@@ -1,5 +1,6 @@
 using Items;
 using Objective;
+using UI;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
@@ -44,6 +45,9 @@ namespace Player
                 manager.InteractionProgressSlider.value = Mathf.Clamp01(_stateTime / max);
             }
 
+            var buttonWasPressedThisFrame = button.wasPressedThisFrame && !OnScreenUIManager.Instance.ShouldLockInput;
+            var buttonWasReleasedThisFrame = button.wasReleasedThisFrame;
+            
             if (itemHeld == null)
             {
                 if (_handState == HandState.RemovingItem && _stateTime >= manager.TimeToRemoveItemFromTree)
@@ -53,7 +57,7 @@ namespace Player
                     _removing = null;
                 }
                 
-                if (button.wasPressedThisFrame)
+                if (buttonWasPressedThisFrame)
                 {
                     var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit,
                         manager.Range);
@@ -92,14 +96,14 @@ namespace Player
                     }
                 }
 
-                if (button.wasReleasedThisFrame && _handState == HandState.RemovingItem)
+                if (buttonWasReleasedThisFrame && _handState == HandState.RemovingItem)
                 {
                     _handState = HandState.Idle;
                 }
             }
             else
             {
-                if (button.wasPressedThisFrame)
+                if (buttonWasPressedThisFrame)
                 {
                     var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit,
                         manager.Range);
@@ -114,13 +118,13 @@ namespace Player
                     }
                 }
 
-                if (button.wasPressedThisFrame && _handState != HandState.Throwing)
+                if (buttonWasPressedThisFrame && _handState != HandState.Throwing)
                 {
                     _handState = HandState.Throwing;
                     _stateTime = 0;
                 }
 
-                if (button.wasReleasedThisFrame && _handState == HandState.Throwing)
+                if (buttonWasReleasedThisFrame && _handState == HandState.Throwing)
                 {
                     _handState = HandState.Idle;
                     if (itemHeld.Drop())

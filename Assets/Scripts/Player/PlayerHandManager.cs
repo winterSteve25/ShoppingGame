@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using Items;
 using KinematicCharacterController;
+using Managers;
 using Objective;
+using Reflex.Attributes;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Utils;
 
 namespace Player
 {
@@ -17,7 +18,6 @@ namespace Player
         [SerializeField] private Transform head;
         [SerializeField] private PlayerHand leftHand;
         [SerializeField] private PlayerHand rightHand;
-        [SerializeField] private Slider interactionProgressSlider;
 
         [Header("Parameters")] 
         [SerializeField] private float range;
@@ -28,7 +28,7 @@ namespace Player
         
         public Stack<IInteractableArea> InteractableAreas => _interactableAreas;
         public Transform Head => head;
-        public Transform FpCam => _fpCam;
+        public Transform FpCam => _fpCam.transform;
         public AnimationCurve ThrowMultiplierCurve => throwMultiplierCurve;
         public NetworkInventory Inventory => inventory;
         public float Range => range;
@@ -37,10 +37,11 @@ namespace Player
         public float TimeToRemoveItemFromTree => timeToRemoveItemFromTree;
         public WorldItem LeftHandItem => leftHand.itemHeld;
         public WorldItem RightHandItem => rightHand.itemHeld;
-        public Slider InteractionProgressSlider => interactionProgressSlider;
+        public Slider InteractionProgressSlider => _interactionProgressSlider;
 
         /// NOT SYNCED ONLY AVAILABLE ON OWNER
-        private Transform _fpCam;
+        [Inject] private PlayerCamera _fpCam;
+        [Inject] private Slider _interactionProgressSlider;
         private Stack<IInteractableArea> _interactableAreas;
         
         public override void OnNetworkSpawn()
@@ -49,18 +50,9 @@ namespace Player
             _interactableAreas = new Stack<IInteractableArea>();
         }
 
-        private void Start()
-        {
-            _fpCam = CameraManager.Current.FPCam.transform;
-        }
-
         private void Update()
         {
             if (!IsOwner) return;
-            if (_fpCam == null)
-            {
-                _fpCam = CameraManager.Current.FPCam.transform;
-            }
             
             leftHand.UpdateHand(Mouse.current.leftButton);
             rightHand.UpdateHand(Mouse.current.rightButton);

@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edd4d6dec9974f11ba4b078ca3a0e1e, type: 3}
+  m_Name: PaletteStore
+  m_EditorClassIdentifier: 
+  _colorPalette:
+    _entries:
+      _keys:
+      - 660e316a-dcc8-42d6-839a-7e996895a9cf
+      - 853672fc-1d57-4f94-8e20-ae9c653fffd7
+      - 4f96ba74-7bae-47a8-8b8a-16bdd8e3ac8e
+      _values:
+      - _id: 660e316a-dcc8-42d6-839a-7e996895a9cf
+        _name:
+          _value: Text
+        _values:
+          _keys:
+          - 39ce5a21-dded-4757-996e-6c9ff00a866c
+          _values:
+          - _value: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
+      - _id: 853672fc-1d57-4f94-8e20-ae9c653fffd7
+        _name:
+          _value: Background
+        _values:
+          _keys:
+          - 39ce5a21-dded-4757-996e-6c9ff00a866c
+          _values:
+          - _value: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
+      - _id: 4f96ba74-7bae-47a8-8b8a-16bdd8e3ac8e
+        _name:
+          _value: Highlight
+        _values:
+          _keys:
+          - 39ce5a21-dded-4757-996e-6c9ff00a866c
+          _values:
+          - _value: {r: 0.3726415, g: 0.61878574, b: 1, a: 1}
+    _themes:
+      _keys:
+      - 39ce5a21-dded-4757-996e-6c9ff00a866c
+      _values:
+      - _id: 39ce5a21-dded-4757-996e-6c9ff00a866c
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids:
+      - 660e316a-dcc8-42d6-839a-7e996895a9cf
+      - 853672fc-1d57-4f94-8e20-ae9c653fffd7
+      - 4f96ba74-7bae-47a8-8b8a-16bdd8e3ac8e
+    _themeOrders:
+      _ids:
+      - 39ce5a21-dded-4757-996e-6c9ff00a866c
+    _activeThemeId: 39ce5a21-dded-4757-996e-6c9ff00a866c
+  _gradientPalette:
+    _entries:
+      _keys: []
+      _values: []
+    _themes:
+      _keys:
+      - 531b41eb-4fa6-4850-90a1-2cda795118d7
+      _values:
+      - _id: 531b41eb-4fa6-4850-90a1-2cda795118d7
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids: []
+    _themeOrders:
+      _ids:
+      - 531b41eb-4fa6-4850-90a1-2cda795118d7
+    _activeThemeId: 531b41eb-4fa6-4850-90a1-2cda795118d7
+  _characterStylePalette:
+    _entries:
+      _keys: []
+      _values: []
+    _themes:
+      _keys:
+      - 23f032b2-b07d-4d03-8892-edafe278f769
+      _values:
+      - _id: 23f032b2-b07d-4d03-8892-edafe278f769
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids: []
+    _themeOrders:
+      _ids:
+      - 23f032b2-b07d-4d03-8892-edafe278f769
+    _activeThemeId: 23f032b2-b07d-4d03-8892-edafe278f769
+  _characterStyleTMPPalette:
+    _entries:
+      _keys:
+      - 9050bdb2-6cca-4851-9c1f-a8920cf37a85
+      - 4afc3ddd-4413-4937-bf61-06e26a614133
+      _values:
+      - _id: 9050bdb2-6cca-4851-9c1f-a8920cf37a85
+        _name:
+          _value: Title Text
+        _values:
+          _keys:
+          - f4ccf0ac-c466-48e8-a52e-2e5579ce50b0
+          _values:
+          - _value:
+              font: {fileID: 11400000, guid: 557cc2cfca6eed74980d87b4f09d96bc, type: 2}
+              fontStyle: 0
+              fontSize: 64
+              enableAutoSizing: 0
+              enableAutoSizeOptions: 1
+              fontSizeMin: 18
+              fontSizeMax: 72
+              characterWidthAdjustment: 0
+              lineSpacingAdjustment: 0
+              characterSpacing: 0
+              wordSpacing: 0
+              lineSpacing: 0
+              paragraphSpacing: 0
+              fontSharedMaterial: {fileID: 0}
+      - _id: 4afc3ddd-4413-4937-bf61-06e26a614133
+        _name:
+          _value: Body Text
+        _values:
+          _keys:
+          - f4ccf0ac-c466-48e8-a52e-2e5579ce50b0
+          _values:
+          - _value:
+              font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+              fontStyle: 0
+              fontSize: 36
+              enableAutoSizing: 0
+              enableAutoSizeOptions: 1
+              fontSizeMin: 18
+              fontSizeMax: 72
+              characterWidthAdjustment: 0
+              lineSpacingAdjustment: 0
+              characterSpacing: 0
+              wordSpacing: 0
+              lineSpacing: 0
+              paragraphSpacing: 0
+              fontSharedMaterial: {fileID: 0}
+    _themes:
+      _keys:
+      - f4ccf0ac-c466-48e8-a52e-2e5579ce50b0
+      _values:
+      - _id: f4ccf0ac-c466-48e8-a52e-2e5579ce50b0
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids:
+      - 9050bdb2-6cca-4851-9c1f-a8920cf37a85
+      - 4afc3ddd-4413-4937-bf61-06e26a614133
+    _themeOrders:
+      _ids:
+      - f4ccf0ac-c466-48e8-a52e-2e5579ce50b0
+    _activeThemeId: f4ccf0ac-c466-48e8-a52e-2e5579ce50b0
+  _missingEntryErrorLevel: 1

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.harumak.upalette": {
+      "version": "https://github.com/Haruma-K/uPalette.git?path=/Assets/uPalette",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "391e17693fd29e8da423add53471a3e57bb5506c"
+    },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
       "depth": 0,
