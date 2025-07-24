@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc5db733-1920-445e-a43f-e57670781de8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Materials/White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Dark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Dark.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Ghost.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Ghost.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GhostRed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GhostRed.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid20.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid20.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid200.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid200.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GridBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GridBlue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Light.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Orange.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/PlanetMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/PlanetMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Purple.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Teleporter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Teleporter.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/tile_green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/tile_green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Models/Materials/No Name.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Orange.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VirtualProjectsConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VirtualProjectsConfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MainMenu/JoinLobbyButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="30Hu2HeirI3z0c8F0efRCxUf4xW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc5db733-1920-445e-a43f-e57670781de8" name="Changes" comment="" />
+      <created>1753296616996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753296616996</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityProjectDiscoverer">
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

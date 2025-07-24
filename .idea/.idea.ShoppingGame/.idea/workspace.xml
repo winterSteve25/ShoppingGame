@@ -5,56 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a463d8-0d9f-45d2-8665-ff215fef4e46" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShoppingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShoppingGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level/Material/Slippery AF.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Level/Material/Slippery AF.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/LightingData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/LightingData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-0_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-0_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-0_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-0_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-1_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-1_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-1_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-1_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-2_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-2_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-2_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-2_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-3_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-3_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-3_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-3_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-4_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-4_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-4_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-4_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-5_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-5_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-5_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-5_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-6_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-6_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-6_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-6_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-7_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-7_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-7_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-7_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-8_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-8_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-8_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-8_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-9_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-9_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-9_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/Lightmap-9_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/ReflectionProbe-0.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby Scene/ReflectionProbe-0.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Materials/White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Dark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Dark.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Ghost.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Ghost.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GhostRed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GhostRed.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid20.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid20.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid200.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid200.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GridBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GridBlue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Light.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Orange.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/PlanetMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/PlanetMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Purple.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Teleporter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Teleporter.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/tile_green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/tile_green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Models/Materials/No Name.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Orange.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/White.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VirtualProjectsConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VirtualProjectsConfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +160,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.13f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\ShoppingGame -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\ShoppingGame" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -181,7 +168,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.13f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\ShoppingGame -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\ShoppingGame" />
       <option name="PASS_PARENT_ENVS" value="1" />

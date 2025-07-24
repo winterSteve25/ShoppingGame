@@ -9048,7 +9048,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1988784377}
+  m_Mesh: {fileID: 423627518}
 --- !u!33 &480848529
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -13323,7 +13323,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &507977781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14284,7 +14284,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 37667040}
+  m_Mesh: {fileID: 583712019}
 --- !u!33 &517315077
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -62878,6 +62878,79 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &3280986848754373251
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431355876936947172, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683352657251710046, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: m_Name
+      value: Jump Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355946514610601522, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4167090195
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355946514610601522, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 4181187015
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8cb3098be519de4091114c5ca49d18a, type: 3}
 --- !u!33 &3934307841308758361
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -65616,3 +65689,4 @@ SceneRoots:
   - {fileID: 1087988302}
   - {fileID: 157501545}
   - {fileID: 507702274}
+  - {fileID: 3280986848754373251}
