@@ -5,43 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a463d8-0d9f-45d2-8665-ff215fef4e46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpPad.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/IPowerUpEffect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/IPowerUpEffect.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpBoostPowerUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpBoostPowerUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUp.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShoppingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShoppingGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Materials/White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Dark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Dark.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Ghost.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Ghost.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GhostRed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GhostRed.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid20.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid20.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid200.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Grid200.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GridBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/GridBlue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Light.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Orange.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/PlanetMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/PlanetMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Purple.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Teleporter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Teleporter.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/Water.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/tile_green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Materials/tile_green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Models/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KinematicCharacterController/Examples/Models/Materials/No Name.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Orange.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Shader/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shader/White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/VirtualProjectsConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VirtualProjectsConfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,36 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2af51555c44e4541b0cba568fab6fb7773c00/39/60c1e298/INativeDisposable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3eeccd76c3314f28a08c1874da29c58c2b000/90/de98143d/Physics.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3eeccd76c3314f28a08c1874da29c58c2b000/b5/4f3cb334/Rigidbody.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8037be16442746a59e6100092b820ba295e00/12/93617ee2/RpcTargetUse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8db6ec373e6d40bd9d38c8037d358c4e46ae00/1b/b8cd72af/TimeSpan.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8db6ec373e6d40bd9d38c8037d358c4e46ae00/a8/1ad1fffa/Stack`1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8db6ec373e6d40bd9d38c8037d358c4e46ae00/aa/94e05039/DateTimeFormatInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/3f/b0849b2b/Application.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/5a/8e65c38b/DefaultExecutionOrder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/70/667d257e/NativeArray`1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/71/dff2cdd4/Update.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/7a/047f005a/AsyncOperation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/82/6f8bb9f8/SceneManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/9d/4349d658/Vector2.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/9e/19d0759b/Color.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/a6/0e4e82aa/Quaternion.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/ab/cbfe461a/Resources.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/b9/413a7a12/RenderPipelineManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/e3/105005ba/Vector3.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/e4/0cbe2507/Allocator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/fa/0516ce94/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33129f0f2f84d4d9540790ac6d74c381ea600/ff/4287f061/TagHandle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dec53f5230fc491cbe68915551a0176319c00/ff/d9e65e47/ShowInInspectorAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed54165c48524e3787d30b648882ce1c8c400/06/65204c62/SteamId.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed54165c48524e3787d30b648882ce1c8c400/33/e8784ca3/SteamFriends.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed54165c48524e3787d30b648882ce1c8c400/52/07e3107e/ISteamUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed54165c48524e3787d30b648882ce1c8c400/57/a0421d6c/Friend.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed54165c48524e3787d30b648882ce1c8c400/ad/8b3b28e5/SteamClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed54165c48524e3787d30b648882ce1c8c400/f8/e9317bb1/SteamUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ce25f60185214755aecd20f4c928c90e1eae00/2a/aab3a570/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/KinematicCharacterController/ExampleCharacter/Scripts/ExampleCharacterCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Reflex/Core/SceneScope.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objective/Snowball/SnowballAreaObjective.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,11 +63,6 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@9684ced5879f/Runtime/Serialization/NetworkBehaviourReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@9684ced5879f/Runtime/Serialization/NetworkObjectReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@9684ced5879f/Runtime/Spawning/NetworkSpawnManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal-config@6af1487fecff/Runtime/ShaderConfig.cs.hlsl" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@24527717fb47/ShaderLibrary/Input.hlsl" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@24527717fb47/ShaderLibrary/RealtimeLights.hlsl" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@24527717fb47/ShaderLibrary/Shadows.hlsl" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@77ab6c14086a/Runtime/UGUI/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
