@@ -270,5 +270,19 @@ namespace Player
                 _jumpRequested = true;
             }
         }
+
+        [Rpc(SendTo.Owner)]
+        public void MultiplyMovementSpeedRpc(float multiplier)
+        {
+            maxSprintMoveSpeed *= multiplier;
+            maxStableMoveSpeed *= multiplier;
+            maxAirMoveSpeed *= multiplier;
+        }
+        
+        [Rpc(SendTo.Owner)]
+        public void MultiplyJumpSpeedRpc(float multiplier)
+        {
+            jumpUpSpeed *= multiplier;
+        }
     }
 }

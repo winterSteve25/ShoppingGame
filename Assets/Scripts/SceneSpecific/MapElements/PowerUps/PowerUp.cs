@@ -8,17 +8,29 @@ namespace SceneSpecific.MapElements
 {
     public class PowerUp : NetworkBehaviour
     {
+        [SerializeField] private float effectDuration;
+
         private IPowerUpEffect _powerUpEffect;
-        
+
+        public override void OnNetworkSpawn()
+        {
+            if (!IsServer) return;
+            _powerUpEffect = GetComponent<IPowerUpEffect>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (!IsServer) return;
             if (!other.TryGetComponent(out PlayerCharacterController player)) return;
 
             _powerUpEffect.Apply(player);
-            RemoveEffect(player, _powerUpEffect.EffectDuration, _powerUpEffect.RemoveEffect())
-                .Forget();
-            
+
+            if (effectDuration >= 0)
+            {
+                RemoveEffect(player, effectDuration, _powerUpEffect.RemoveEffect())
+                    .Forget();
+            }
+
             NetworkObject.Despawn();
         }
 
@@ -26,7 +38,11 @@ namespace SceneSpecific.MapElements
             float effectDuration,
             Action<PlayerCharacterController> removeEffect)
         {
-            await UniTask.Delay((int)(effectDuration * 1000));
+            if (effectDuration > 0)
+            {
+                await UniTask.Delay((int)(effectDuration * 1000));
+            }
+
             removeEffect(player);
         }
     }

@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a463d8-0d9f-45d2-8665-ff215fef4e46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/IPowerUpEffect.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/IPowerUpEffect.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpBoostPowerUp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpBoostPowerUp.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUpSpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUpSpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/SpeedBoostPowerUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/SpeedBoostPowerUp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/SuperStrengthPowerUp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/SuperStrengthPowerUp.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShoppingGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShoppingGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHandManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHandManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/IPowerUpEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/IPowerUpEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/IPowerUpEffect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/IPowerUpEffect.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpBoostPowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/JumpBoostPowerUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/JumpBoostPowerUp.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/JumpBoostPowerUp.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/PowerUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUp.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneSpecific/MapElements/PowerUps/PowerUp.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +111,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.13f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\ShoppingGame -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\ShoppingGame" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -104,7 +119,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.13f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\ShoppingGame -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\ShoppingGame" />
       <option name="PASS_PARENT_ENVS" value="1" />

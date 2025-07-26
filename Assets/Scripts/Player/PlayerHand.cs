@@ -28,7 +28,7 @@ namespace Player
             RemovingItem,
         }
 
-        public void UpdateHand(ButtonControl button)
+        public bool UpdateHand(ButtonControl button, float multiplier)
         {
             if (_punchCooldown > 0)
             {
@@ -40,14 +40,14 @@ namespace Player
                 var max = _handState == HandState.Throwing
                     ? manager.ThrowMultiplierCurve.keys[manager.ThrowMultiplierCurve.length - 1].time
                     : manager.TimeToRemoveItemFromTree;
-                
+
                 _stateTime += Time.deltaTime;
                 manager.InteractionProgressSlider.value = Mathf.Clamp01(_stateTime / max);
             }
 
             var buttonWasPressedThisFrame = button.wasPressedThisFrame && !OnScreenUIManager.Instance.ShouldLockInput;
             var buttonWasReleasedThisFrame = button.wasReleasedThisFrame;
-            
+
             if (itemHeld == null)
             {
                 if (_handState == HandState.RemovingItem && _stateTime >= manager.TimeToRemoveItemFromTree)
@@ -56,7 +56,7 @@ namespace Player
                     _handState = HandState.Idle;
                     _removing = null;
                 }
-                
+
                 if (buttonWasPressedThisFrame)
                 {
                     var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit,
@@ -66,22 +66,22 @@ namespace Player
                         if (manager.InteractableAreas.TryPeek(out var area))
                         {
                             area.Interact(NetworkObject, isLeftHand);
-                            return;
+                            return false;
                         }
 
-                        Punch(false, hit);
-                        return;
+                        Punch(false, hit, multiplier);
+                        return true;
                     }
 
                     if (!hit.transform.TryGetComponent(out WorldItem item))
                     {
                         if (hit.transform.TryGetComponent(out IInteractable interactable))
                         {
-                            if (interactable.Interact(NetworkObject, isLeftHand)) return;
+                            if (interactable.Interact(NetworkObject, isLeftHand)) return false;
                         }
 
-                        Punch(true, hit);
-                        return;
+                        Punch(true, hit, multiplier);
+                        return true;
                     }
 
                     if (item.IsOnTree && _handState != HandState.RemovingItem)
@@ -114,7 +114,7 @@ namespace Player
                             itemHeld = null;
                         }
 
-                        return;
+                        return false;
                     }
                 }
 
@@ -133,15 +133,18 @@ namespace Player
                         {
                             rb.AddForce(
                                 (manager.FpCam.forward + new Vector3(0, 0.4f, 0)) *
-                                manager.ThrowMultiplierCurve.Evaluate(_stateTime),
+                                (manager.ThrowMultiplierCurve.Evaluate(_stateTime) * multiplier * GetComponent<Rigidbody>().linearVelocity.magnitude),
                                 ForceMode.VelocityChange
                             );
                         }
 
                         itemHeld = null;
+                        return true;
                     }
                 }
             }
+
+            return false;
         }
 
         public void PickupItem(WorldItem item)
@@ -150,12 +153,12 @@ namespace Player
             itemHeld = item;
         }
 
-        private void Punch(bool didHit, RaycastHit hit)
+        private void Punch(bool didHit, RaycastHit hit, float multiplier)
         {
             if (!didHit) return;
             if (_punchCooldown > 0) return;
             if (!hit.transform.TryGetComponent(out PlayerHandManager no)) return;
-            manager.ApplyForceRpc(no, transform.forward * manager.ShoveForce,
+            manager.ApplyForceRpc(no, transform.forward * (manager.ShoveForce * multiplier),
                 RpcTarget.Single(no.OwnerClientId, RpcTargetUse.Temp));
             _punchCooldown = manager.ShoveCooldown;
         }

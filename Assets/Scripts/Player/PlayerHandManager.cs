@@ -43,6 +43,7 @@ namespace Player
         [Inject] private PlayerCamera _fpCam;
         [Inject] private Slider _interactionProgressSlider;
         private Stack<IInteractableArea> _interactableAreas;
+        private float _superStrengthMultiplier;
         
         public override void OnNetworkSpawn()
         {
@@ -53,9 +54,16 @@ namespace Player
         private void Update()
         {
             if (!IsOwner) return;
-            
-            leftHand.UpdateHand(Mouse.current.leftButton);
-            rightHand.UpdateHand(Mouse.current.rightButton);
+
+            if (leftHand.UpdateHand(Mouse.current.leftButton, _superStrengthMultiplier))
+            {
+                _superStrengthMultiplier = 1;
+            }
+
+            if (rightHand.UpdateHand(Mouse.current.rightButton, _superStrengthMultiplier))
+            {
+                _superStrengthMultiplier = 1;
+            }
         }
 
         public void PickupItemToHand(WorldItem item, bool left)
@@ -126,6 +134,12 @@ namespace Player
             if (!IsOwner) return;
             if (!other.TryGetComponent(out IInteractableArea _)) return;
             _interactableAreas.Pop();
+        }
+
+        [Rpc(SendTo.Owner)]
+        public void MultiplySuperStrengthMultiplierRpc(float factor)
+        {
+            _superStrengthMultiplier *= factor;
         }
     }
 }
