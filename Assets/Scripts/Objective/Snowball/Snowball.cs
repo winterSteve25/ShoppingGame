@@ -25,6 +25,7 @@ namespace Objective.Snowball
             {
                 hand.ApplyForceRpc(hand,
                     direction * forceMultiplierOnPlayer,
+                    true,
                     RpcTarget.Single(hand.OwnerClientId, RpcTargetUse.Temp));
             }
             else if (other.gameObject.TryGetComponent(out NetworkRigidbody networkRigidbody))

@@ -1,6 +1,7 @@
 using System;
 using Sirenix.OdinInspector;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 namespace Items
@@ -52,6 +53,12 @@ namespace Items
             if (_itemType.Value != -1)
             {
                 UpdateTransform(_itemType.Value);
+            }
+
+            if (IsOwner)
+            {
+                rb.isKinematic = true;
+                rb.useGravity = false;
             }
         }
 

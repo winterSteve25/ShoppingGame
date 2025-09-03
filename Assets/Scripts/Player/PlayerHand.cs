@@ -1,3 +1,4 @@
+using System;
 using Items;
 using Objective;
 using UI;
@@ -26,6 +27,11 @@ namespace Player
             Idle,
             Throwing,
             RemovingItem,
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawRay(manager.Head.position, manager.FpCam.forward * manager.Range);
         }
 
         public bool UpdateHand(ButtonControl button, float multiplier)
@@ -59,8 +65,7 @@ namespace Player
 
                 if (buttonWasPressedThisFrame)
                 {
-                    var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit,
-                        manager.Range);
+                    var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit, manager.Range, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
                     if (!didHit)
                     {
                         if (manager.InteractableAreas.TryPeek(out var area))
@@ -105,8 +110,7 @@ namespace Player
             {
                 if (buttonWasPressedThisFrame)
                 {
-                    var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit,
-                        manager.Range);
+                    var didHit = Physics.Raycast(manager.Head.position, manager.FpCam.forward, out var hit, manager.Range, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
                     if (didHit && hit.transform.TryGetComponent(out IItemTaker interactable))
                     {
                         if (interactable.Submit(itemHeld))
@@ -131,6 +135,8 @@ namespace Player
                     {
                         if (itemHeld.TryGetComponent(out Rigidbody rb))
                         {
+                            Debug.Log(GetComponent<Rigidbody>().linearVelocity.magnitude);
+                            
                             rb.AddForce(
                                 (manager.FpCam.forward + new Vector3(0, 0.4f, 0)) *
                                 (manager.ThrowMultiplierCurve.Evaluate(_stateTime) * multiplier * GetComponent<Rigidbody>().linearVelocity.magnitude),
@@ -159,6 +165,7 @@ namespace Player
             if (_punchCooldown > 0) return;
             if (!hit.transform.TryGetComponent(out PlayerHandManager no)) return;
             manager.ApplyForceRpc(no, transform.forward * (manager.ShoveForce * multiplier),
+                true,
                 RpcTarget.Single(no.OwnerClientId, RpcTargetUse.Temp));
             _punchCooldown = manager.ShoveCooldown;
         }

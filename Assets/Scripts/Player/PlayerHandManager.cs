@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Items;
 using KinematicCharacterController;
-using Managers;
 using Objective;
 using Reflex.Attributes;
+using Sirenix.OdinInspector;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,19 +13,21 @@ namespace Player
 {
     public class PlayerHandManager : NetworkBehaviour
     {
-        [Header("References")] 
-        [SerializeField] private NetworkInventory inventory;
+        [Header("References")] [SerializeField]
+        private NetworkInventory inventory;
+
         [SerializeField] private Transform head;
         [SerializeField] private PlayerHand leftHand;
         [SerializeField] private PlayerHand rightHand;
 
-        [Header("Parameters")] 
-        [SerializeField] private float range;
+        [Header("Parameters")] [SerializeField]
+        private float range;
+
         [SerializeField] private float shoveForce = 80;
         [SerializeField] private float shoveCooldown = 0.8f;
         [SerializeField] private float timeToRemoveItemFromTree = 1f;
         [SerializeField] private AnimationCurve throwMultiplierCurve;
-        
+
         public Stack<IInteractableArea> InteractableAreas => _interactableAreas;
         public Transform Head => head;
         public Transform FpCam => _fpCam.transform;
@@ -41,14 +43,18 @@ namespace Player
 
         /// NOT SYNCED ONLY AVAILABLE ON OWNER
         [Inject] private PlayerCamera _fpCam;
+
         [Inject] private Slider _interactionProgressSlider;
         private Stack<IInteractableArea> _interactableAreas;
+
+        [ShowInInspector, Sirenix.OdinInspector.ReadOnly]
         private float _superStrengthMultiplier;
-        
+
         public override void OnNetworkSpawn()
         {
             if (!IsOwner) return;
             _interactableAreas = new Stack<IInteractableArea>();
+            _superStrengthMultiplier = 1;
         }
 
         private void Update()
@@ -101,14 +107,17 @@ namespace Player
         }
 
         [Rpc(SendTo.SpecifiedInParams)]
-        public void ApplyForceRpc(NetworkBehaviourReference obj, Vector3 force, RpcParams _)
+        public void ApplyForceRpc(NetworkBehaviourReference obj, Vector3 force, bool dropItems, RpcParams _)
         {
             if (!obj.TryGet(out PlayerHandManager o, NetworkManager)) return;
             if (!o.TryGetComponent(out KinematicCharacterMotor motor)) return;
             motor.BaseVelocity += (force * (motor.GroundingStatus.IsStableOnGround ? 1.2f : 1));
 
-            DropItemAndApplyForce(ref o.leftHand.itemHeld, force);
-            DropItemAndApplyForce(ref o.rightHand.itemHeld, force);
+            if (dropItems)
+            {
+                DropItemAndApplyForce(ref o.leftHand.itemHeld, force);
+                DropItemAndApplyForce(ref o.rightHand.itemHeld, force);
+            }
         }
 
         private void DropItemAndApplyForce(ref WorldItem item, Vector3 force)

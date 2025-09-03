@@ -203,3 +203,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   upwardForce: 35
+  upwardForceItem: 15
